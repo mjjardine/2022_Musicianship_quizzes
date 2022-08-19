@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+Selectors:
+  highlights:
+    $('div') all of that type
+    $('#first_div') all of that id
+    $('[class=first_class]') all of that class
+  more info:
+    summary = https://www.tutorialsteacher.com/jquery/jquery-selectors
+    ...or more advanced (?) = https://www.tutorialsteacher.com/jquery/jquery-selector-reference
+  detail:
+    $('div') all <div> elements
+    $('div, p') all <div> and all <p> elements
+    $('div p') all <p> elements which are within <div> ("descendant elements")
+    $('div > p') all <p> elements which are "child" of <div>
+    $(*) all elements
+    $('#first_div') all elements with id first_div
+    $('div#first_div') <div> element with id first_div
+    $('#first_div, #second_div') both those id
+    $('.first_class') all elements of class first_class
+    $('.first_class, .second_class') either
+    $('div.first_class') any <div> with class first_class
+    $('p:first-child') all <p> elements which are the first child of their parent element
+    $('p:last-child') all <p> elements which are the last child of their parent element
+    $('p:nth-child(5)') all <p> elements which are the 5th child of their parent element (n can be whatever)
+    $('p:nth-last-child(5)') all <p> elements which are the 5th-last child of their parent element (n can be whatever)
+    $('p:only-child') all <p> elements which are the only child of their parent element
+    $('[class]') all elements with ANY class
+    $('div[class]') all <div> elements of any class
+    $('div[class=first_class]') all <div> elements of class first_class
+    $('div[class|=first_class]') all <div> elements of class first_class OR whose class starts with first_class followed by a hyphen (e.g. class="first_class-5" or something)
+    $('div[class*="first_class"]') all <div> elements with class name CONTAINING first_class (e.g. class="div_of_first_class-5" or something)
+    $('div[class~=first_class]') all <div> elements with class name CONTAINING first_class surrounded by spaces (e.g. class="div_of first_class 5" or something)
+    $("div[class $= 'first_class']") all <div> elements ENDING in first_class. IS case-sensitive
+    $("div[class != 'first_class']") all <div> elements which either don't have a class attribute or have a class that isn't first_class
+    $("div[class ^= 'first_class']") all <div> elements whose class starts with first_class
+    $(":input") all input elements
+    $(":button") all elements where type="button"
+    $(":radio") all elements where type="radio"
+    $(":text") all elements where type="text"
+    $(":checkbox") all checkbox elements
+    $(":submit") all input elements where type="submit"
+    $(":password") all input elements where type="password"
+    $(":reset") all input elements where type="reset"
+    $(":image") all input elements where type="image"
+    $(":file") all input elements where type="file"
+    $(':enabled') all enabled elements
+    $(':disabled') all disabled elements
+    $(':selected') all selected elements
+    $(':checked') all checked elements
+    $(':hidden') all hidden elements
+    $(':visible') all visible elements
+    $('tr:odd') selects all odd rows (e.g. $("tr:odd") selects odd rows of table)
+    $('tr:even') selects all even rows
+-->
+<html>
+<head>
+  <script src=".\js\jquery-3.6.0.js"></script>
+  <script src=".\js\jquery.hotkeys.js"></script>
+  <script src=".\js\temp23.js"></script>
+  <link rel="stylesheet" href="css/temp23.css" />
+  </head>
+<body>
+  <div id="headerDiv" class="header">
+    <p id="heading">Quiz</p>
+    <p id="maxLengthHeading"># of questions available:&nbsp;&nbsp;<span id="totalLengthSpan"></span></p>
+    <p id="quizLengthHeading">Length of quiz:&nbsp;&nbsp;<span id="quiz_length_span"></span></p>
+    <p id="changeQuizLength">Click to change quiz length: <select name="change quiz length" id="quizLengthSelector"></select></p>
+    <input type="button" value="Start" id="startButton" />
+  </div>
+  <div id="questionsDiv" hidden>
+  </div>
+  <div id="progressBar" hidden>
+    <p id="q_num_of_max">Completed <span id="q_num"></span> of <span id="q_max"></span> questions so far...</p>
+    <p id="progressScore" style="visibility:hidden"><span id="progressText">Score so far:&nbsp;&nbsp;</span><span class="biggerSpan"><span id="progressPercentage"> 0</span>%</span></p>
+    <p id="progressXofY" style="visibility:hidden">(<span id="progressX"></span> out of <span id="progressY"></span> correct so far)</p>
+
+  </div>
+  <div id="resultsDiv" hidden>
+    <p id="resultsHeading">Results:</p>
+    <p id="resultsScore">Final score: <span class="biggerSpan"><span id="resultsPercentage"></span>%</span></p>
+    <p id="resultsXofY">(<span id="resultsX">0</span> correct out of <span id="resultsY"></span> questions)</p>
+  </div>
+  </body>
+</html>
+<!-- $('dd').each(function (index)) { somethingOrOther } ) could be useful on scales website -->
